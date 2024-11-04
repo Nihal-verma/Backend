@@ -1,0 +1,10 @@
+const express = require("express")
+const {getEmployeeByCompanyId,uploadEmployee,getEmployeeById,getTotalNumberOfEmployeeInCourseAndTna,getTnaEmployeeByCompanyId}= require("../../../Controller/Admin/Employee")
+const upload = require("../../../Middleware/multer")
+const router = express.Router()
+router.post("/upload/:comp_id",upload.single("file"),uploadEmployee)
+router.get("/getByCompanyId/:comp_id",getEmployeeByCompanyId)
+router.get("/byId/:emp_id",getEmployeeById)
+router.get("/getTotalNumberOfEmployeeInCourseAndTna/:comp_id",getTotalNumberOfEmployeeInCourseAndTna)
+router.get("/getTnaEmployeeByCompanyId/:comp_id",getTnaEmployeeByCompanyId)
+module.exports = router
